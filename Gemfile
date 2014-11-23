@@ -30,7 +30,7 @@ gem 'spring',        group: :development
 gem 'bcrypt', '~> 3.1.7'
 gem 'foundation-rails'
 gem 'pry-rails'
-gem 'awesome-print'
+gem 'awesome_print'
 gem 'better_errors'
 gem "binding_of_caller"
 
