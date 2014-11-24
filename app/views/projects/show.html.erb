@@ -1,2 +1,3 @@
 <h1><%= @project.name %></h1>
-<h2><%= @project.schedule.start_date %></h2>
+<h2>Project Starts On <strong><%=@project.schedule.start_date.strftime("%A, %b %d")%></strong>,</h2>
+<h2>and Ends On <strong><%=@project.schedule.end_date.strftime("%A, %b %d")%></strong></h2>
