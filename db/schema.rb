@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141123214016) do
+ActiveRecord::Schema.define(version: 20141124015617) do
+
+  create_table "periods", force: true do |t|
+    t.integer  "period_number"
+    t.integer  "schedule_id"
+    t.float    "bcws"
+    t.float    "bcwp"
+    t.float    "acwp"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "projects", force: true do |t|
     t.string   "name"
