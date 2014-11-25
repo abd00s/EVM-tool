@@ -6,15 +6,25 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @info = [[0,0]] 
+    @bcws = [[0,0]] 
+    @bcwp = [[0,0]] 
+    @acwp = [[0,0]] 
     count = 1
-      prev = 0
+      aprev = 0
+      bprev = 0
+      cprev = 0
     Period.all.each do |p|
-      @info << [count, p.bcws+prev]
-      prev += p.bcws
+      @bcws << [count, p.bcws + aprev]
+      aprev += p.bcws
+      @bcwp << [count, p.bcwp + bprev]
+      bprev += p.bcwp
+      @acwp << [count, p.acwp + cprev]
+      cprev += p.bcws
       count += 1
     end
-    gon.info = @info
+    gon.bcws = @bcws
+    gon.bcwp = @bcwp
+    gon.acwp = @acwp
   end
 
   def new
