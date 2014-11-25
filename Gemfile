@@ -33,8 +33,7 @@ gem 'pry-rails'
 gem 'awesome_print'
 gem 'better_errors'
 gem "binding_of_caller"
-gem 'googlecharts'
-
+gem 'gon'
 # Use unicorn as the app server
 # gem 'unicorn'
 
