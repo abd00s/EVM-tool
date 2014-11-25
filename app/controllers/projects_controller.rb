@@ -6,6 +6,12 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @data = [[0,0]] 
+    Period.all.each do |p|
+      count = 1
+      @data << [count, p.bcws]
+      count += 1
+    end
   end
 
   def new
