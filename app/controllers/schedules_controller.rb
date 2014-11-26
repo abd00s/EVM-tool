@@ -1,6 +1,6 @@
 class SchedulesController < ApplicationController
-  before_action :set_schedule, only: [:show, :edit, :update, :destroy]
-  before_action :set_project, only: [:show, :edit, :new, :create, :update, :destroy]
+  before_action :set_schedule, only: [:show, :update, :destroy]
+  before_action :set_project, only: [:show, :new, :create, :update, :destroy]
 
   def index
   end
@@ -9,7 +9,8 @@ class SchedulesController < ApplicationController
   end
 
   def new
-    @schedule = Schedule.new(project: @project)
+    @schedule = Schedule.create(project: @project)
+    redirect_to edit_project_schedule_path(@project, @schedule)
   end
 
   def create
