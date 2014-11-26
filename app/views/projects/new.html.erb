@@ -1,2 +1,19 @@
-<h1>Projects#new</h1>
-<p>Find me in app/views/projects/new.html.erb</p>
+<h1>Start a New Project</h1>
+<hr>
+
+<%= form_for(@project) do |f| %>
+
+  <div class="row">
+    <div class="large-6 columns">
+      <div class="row collapse">
+        <div class="small-10 columns">
+          <input type="text" placeholder="Project Name" name="project[name]">
+        </div>
+        <div class="small-2 columns">
+          <input name="commit" type="submit" value="Start">
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>

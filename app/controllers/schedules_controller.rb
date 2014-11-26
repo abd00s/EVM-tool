@@ -9,13 +9,16 @@ class SchedulesController < ApplicationController
   end
 
   def new
-    @schedule = @project.schedule.new
+    @schedule = Schedule.new(project: @project)
   end
 
   def create
     @schedule = @project.schedule.new(schedule_params)
     if @schedule.save
       redirect_to project_path(@project), notice: 'New Schedule Created'
+      # num of periods (N)= end - start
+      # N.time {x = Period.create
+      #          x.period_number = count}
     else
       render 'new'
     end

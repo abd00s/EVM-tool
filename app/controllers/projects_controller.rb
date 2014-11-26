@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
       @bcwp << [count, p.bcwp + bprev]
       bprev += p.bcwp
       @acwp << [count, p.acwp + cprev]
-      cprev += p.bcws
+      cprev += p.acwp
       count += 1
     end
     gon.bcws = @bcws
@@ -34,7 +34,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      redirect_to project_path(@project), notice: "New Project Created."
+      redirect_to new_project_schedule_path(@project), notice: "New Project Created."
     else
       render 'new'
     end
