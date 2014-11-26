@@ -11,8 +11,15 @@ class PeriodsController < ApplicationController
 
   def new
     @project = Project.find(params[:project_id])
-    @period = Period.create(schedule: @schedule)
-    redirect_to edit_project_schedule_period_path(@project, @schedule, @period)
+    @start = @schedule.start_date
+    @end = @schedule.end_date
+    @num_periods = (@end.year * 12 + @end.month) - (@start.year * 12 + @start.month)
+    @count = 1
+    @num_periods.times do 
+      @period = Period.create(schedule: @schedule, period_number: @count)
+      @count += 1
+    end 
+    redirect_to project_schedule_periods_path(@project, @schedule)
   end
 
   def create
