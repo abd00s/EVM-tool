@@ -10,7 +10,9 @@ class PeriodsController < ApplicationController
   end
 
   def new
-    @period = @schedule.period.new
+    @project = Project.find(params[:project_id])
+    @period = Period.create(schedule: @schedule)
+    redirect_to edit_project_schedule_period_path(@project, @schedule, @period)
   end
 
   def create

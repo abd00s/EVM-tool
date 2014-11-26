@@ -1,6 +1,6 @@
 class SchedulesController < ApplicationController
-  before_action :set_schedule, only: [:show, :update, :destroy]
-  before_action :set_project, only: [:show, :new, :create, :update, :destroy]
+  before_action :set_schedule, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :new, :edit, :create, :update, :destroy]
 
   def index
   end
@@ -30,7 +30,7 @@ class SchedulesController < ApplicationController
 
   def update
     if @schedule.update_attributes(schedule_params)
-      redirect_to project_path(@project)
+      redirect_to new_project_schedule_period_path(@project, @schedule)
     else
       render 'edit'
     end
