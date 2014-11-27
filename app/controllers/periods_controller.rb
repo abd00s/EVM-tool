@@ -37,8 +37,13 @@ class PeriodsController < ApplicationController
   end
 
   def update
+    @project = Project.find(params[:project_id]).id
     if @period.update_attributes(period_params)
-      redirect_to project_schedule(@schedule), notice: 'Period Data Updated'
+      unless @period.period_number == Period.where(schedule_id: @schedule.id).count
+        redirect_to "/projects/#{@project}/schedules/#{@schedule.id}/periods/#{@period.id+1}/edit", notice: 'Period Data Updated'
+      else
+        redirect_to "/projects/#{@project}"
+      end
     else
       render 'update'
     end

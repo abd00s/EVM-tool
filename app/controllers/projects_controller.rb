@@ -13,18 +13,19 @@ class ProjectsController < ApplicationController
       aprev = 0
       bprev = 0
       cprev = 0
-    Period.all.each do |p|
+    @schedule = Schedule.where(project_id: @project.id).first
+    Period.where(schedule_id: @schedule).each do |p|
       @bcws << [count, p.bcws + aprev]
       aprev += p.bcws
-      @bcwp << [count, p.bcwp + bprev]
-      bprev += p.bcwp
-      @acwp << [count, p.acwp + cprev]
-      cprev += p.acwp
+      # @bcwp << [count, p.bcwp + bprev]
+      # bprev += p.bcwp
+      # @acwp << [count, p.acwp + cprev]
+      # cprev += p.acwp
       count += 1
     end
     gon.bcws = @bcws
-    gon.bcwp = @bcwp
-    gon.acwp = @acwp
+    # gon.bcwp = @bcwp
+    # gon.acwp = @acwp
   end
 
   def new
