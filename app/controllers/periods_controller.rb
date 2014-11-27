@@ -1,9 +1,10 @@
 class PeriodsController < ApplicationController
   before_action :set_period, only: [:show, :edit, :update]
-  before_action :set_schedule, only: [:show, :edit, :new, :create, :update]
+  before_action :set_schedule, only: [:index, :show, :edit, :new, :create, :update]
 
   def index
-    @periods = Period.all
+    @project = Project.find(params[:project_id])
+    @periods = Period.where(schedule_id: @schedule.id)
   end
 
   def show
@@ -32,6 +33,7 @@ class PeriodsController < ApplicationController
   end
 
   def edit
+    @project = Project.find(params[:project_id])
   end
 
   def update

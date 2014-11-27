@@ -1,0 +1,12 @@
+<%= form_for([@project, @schedule, @period]) do |f| %>
+<div class="row">
+  <div class="field large-6 columns">
+    <%= f.label :bcws %><br>
+    <%= f.number_field :bcws %>
+  </div>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+
+<% end %>

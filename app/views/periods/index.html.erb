@@ -1,4 +1,18 @@
-<h1>Periods</h1>
+<b><h1><%= @project.name %></h1></b>
+<hr>
+<h2>This project commences on <%= @schedule.start_date.strftime("%A, %B %e, %Y ") %> and end on <%= @schedule.end_date.strftime("%A, %B %e, %Y ") %> and has <%= @periods.count %> progress periods.</h2>
+<hr>
+<h3>Please input baseline schedule.</h3>
+<hr>
+
+<a href="/projects/<%= @project.id %>/schedules/<%= @schedule.id %>/periods/<%= @periods[0].id %>/edit" class="button [radius round]">Start</a>
+<hr>
+
+
+
+
+
+
 <% @periods.each do |p| %>
   <%= p.id %>
   <%= p.period_number %>
