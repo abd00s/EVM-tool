@@ -28,6 +28,21 @@ class ProjectsController < ApplicationController
     gon.bcws = @bcws
     gon.bcwp = @bcwp
     gon.acwp = @acwp
+
+    if !@schedule.periods.first.bcwp
+      @period_number = 1
+    end
+    
+
+
+    @schedule.periods.each do |p|
+      if !p.bcwp
+        @period_number = p.period_number
+        break
+      end
+    end
+
+    @period_numbers = @schedule.periods.count
   end
 
   def new
