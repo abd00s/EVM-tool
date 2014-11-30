@@ -43,6 +43,24 @@ class ProjectsController < ApplicationController
     end
 
     @period_numbers = @schedule.periods.count
+
+
+    @schedule.periods.each do |p|
+      if !p.bcwp
+        @current = p.period_number-1
+        break
+      else
+        @current = @bcws.length-1
+      end
+    end
+
+    @total_bcws = @bcws[@current][1]
+    @total_bcwp = @bcwp[@bcwp.length-1][1]
+    @total_acwp = @acwp[@acwp.length-1][1]
+    if @total_acwp != 0
+      @cpi = @total_bcwp / @total_acwp
+      @spi = @total_bcwp / @total_bcws
+    end
   end
 
   def new
