@@ -8,7 +8,7 @@
 
   <div class="large-3 columns">
     <div class="panel" style="width: 100%; height: 300px;">
-      <%= link_to "See Schedule Periods", project_path(@project), class: "button round" %>
+      <%= link_to "Update Period 1", edit_project_schedule_period_path(@project, @schedule, @schedule.periods.first), class: "button round" %>
     </div>
   </div>
 </div>
