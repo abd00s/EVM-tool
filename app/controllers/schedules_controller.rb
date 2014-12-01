@@ -10,6 +10,8 @@ class SchedulesController < ApplicationController
 
   def new
     @schedule = Schedule.create(project: @project)
+    # With the schedule associated to the new project created, we redirect to 
+    # this schedule's edit to populate dates
     redirect_to edit_project_schedule_path(@project, @schedule)
   end
 
@@ -30,6 +32,7 @@ class SchedulesController < ApplicationController
 
   def update
     if @schedule.update_attributes(schedule_params)
+      # After the dates are populated, we ridirect to the new periods action
       redirect_to new_project_schedule_period_path(@project, @schedule)
     else
       render 'edit'

@@ -8,6 +8,7 @@
 
   <div class="large-3 columns">
     <div class="panel" style="width: 100%; height: 300px;">
+      <%# Check condition if all actuals have been populated (i.e. project complete) %>
       <% if @period_number %>
       <%= link_to "Update Period #{@period_number}", edit_project_schedule_period_path(@project, @schedule, @schedule.periods.where(period_number: @period_number).first), class: "button round" %>
       <% else %>
