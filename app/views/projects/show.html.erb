@@ -14,6 +14,7 @@
       <% else %>
         <%= link_to "Project Complete", '#', class: "button round disabled" %>
       <% end %>
+      <%= link_to "See Period Details", project_schedule_details_path(@project, @schedule), class: "button round" %>
     </div>
   </div>
 </div>

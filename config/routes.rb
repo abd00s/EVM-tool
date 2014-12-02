@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :schedules do
-      resources :periods
+      get '/details' => 'periods#details'
+      resources :periods  
     end
   end
 
