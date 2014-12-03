@@ -12,6 +12,7 @@ class PeriodsController < ApplicationController
 
   def details
     @periods = Period.where(schedule_id: @schedule.id)
+    @project = Project.find(params[:project_id])
   end
 
   def new
