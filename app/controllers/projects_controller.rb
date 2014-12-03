@@ -75,6 +75,8 @@ class ProjectsController < ApplicationController
     if @total_acwp != 0
       @cpi = (@total_bcwp / @total_acwp).round(3)
       @spi = (@total_bcwp / @total_bcws).round(3)
+      gon.cpi = @cpi
+      gon.spi = @spi
     end
   end
 

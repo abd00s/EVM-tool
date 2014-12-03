@@ -19,8 +19,24 @@
   </div>
 </div>
 <hr>
-<p><b>SPI: <%= @spi%></b></p>
-<p><b>CPI: <%= @cpi%></b></p>
+<!-- <p><b>SPI: <%#= @spi%></b></p>
+<p><b>CPI: <%#= @cpi%></b></p> -->
+<div class="row">
+  <div class="large-9 columns">
+    <div class="large-6 columns">
+      <h3>CPI</h3>
+    </div>
+      <div class="large-6 columns">
+    <h3>SPI</h3>
+    </div>
+  </div>  
+</div>
+<div class="row">
+  <div class="large-9 columns">
+    <div id="cpigauge" class="large-6 columns"></div>
+    <div id="spigauge" class="large-6 columns"></div>
+  </div>  
+</div>
 <p>There are : <%= @period_numbers%> periods</p>
 <p>Next Period : <%= @period_number%> </p>
 <p> BCWS <%= @bcws %></p>
